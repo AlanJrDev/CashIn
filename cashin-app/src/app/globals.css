@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #10B981;
+  --color-primary-container: #50C878;
+  --color-secondary: #6366F1;
+  --color-accent: #F59E0B;
+  --color-background: #0F172A;
+  --color-surface: #1E293B;
+  --color-surface-low: #171d17;
+  --color-surface-high: #252c25;
+  --color-text-primary: #F8FAFC;
+  --color-text-muted: #94A3B8;
+  --color-success: #22C55E;
+  --color-danger: #EF4444;
+
+  --font-inter: var(--font-inter);
+  --font-outfit: var(--font-outfit);
+  --font-mono: var(--font-mono);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    font-family: var(--font-inter), sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-outfit), sans-serif;
+  }
+}
+
+@layer utilities {
+  .glass-card {
+    @apply bg-surface/80 backdrop-blur-md shadow-xl border-none;
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
