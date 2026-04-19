@@ -33,6 +33,13 @@ REGRAS:
 
 export async function POST(req: NextRequest) {
   try {
+    if (!process.env.GROQ_API_KEY) {
+      return NextResponse.json(
+        { error: "Serviço de IA (Groq) não configurado no servidor." },
+        { status: 503 }
+      );
+    }
+
     const { text } = await req.json();
 
     if (!text || typeof text !== "string" || text.trim().length === 0) {
